@@ -1,169 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lavanya Janapati | Senior Data Engineer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #0f172a;
-            color: #e2e8f0;
-        }
-        header {
-            text-align: center;
-            padding: 60px 20px;
-        }
-        h1 { font-size: 40px; margin-bottom: 10px; }
-        h2 { border-bottom: 1px solid #334155; padding-bottom: 5px; }
-        section {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-        }
-        a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lavanya Janapati | Senior Data Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #f5f3ef;
+      --dark:     #1a1a1a;
+      --mid:      #555;
+      --light:    #999;
+      --line:     #ddd;
+      --tag-bg:   #ebe9e5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.65;
+    }
+
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+    }
+    .nav-row {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-name {
+      font-family: 'Fraunces', serif;
+      font-size: 17px; font-weight: 400;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 13px; color: var(--light);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dark); }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+
+    header {
+      padding: 140px 0 72px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-role {
+      font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--light);
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 300; line-height: 1.0;
+      letter-spacing: -2px; margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 16px; color: var(--mid);
+      max-width: 480px; line-height: 1.75;
+      font-weight: 300; margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 10px; }
+    .btn {
+      display: inline-block; font-size: 13px;
+      padding: 9px 18px; border-radius: 4px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-dark { background: var(--dark); color: #fff; }
+    .btn-dark:hover { background: #333; }
+    .btn-ghost { border: 1px solid var(--line); color: var(--mid); }
+    .btn-ghost:hover { border-color: #bbb; color: var(--dark); }
+
+    section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+    .sec-label {
+      font-size: 11px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--light);
+      margin-bottom: 10px;
+    }
+    section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 28px; font-weight: 400;
+      letter-spacing: -0.5px; margin-bottom: 36px;
+    }
+
+    .about-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .about-cols p { font-size: 14px; color: var(--mid); line-height: 1.85; font-weight: 300; }
+    .about-cols p + p { margin-top: 14px; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .skill-col h4 {
+      font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--dark);
+      margin-bottom: 14px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .skill-col ul { list-style: none; }
+    .skill-col li {
+      font-size: 14px; color: var(--mid);
+      padding: 6px 0; border-bottom: 1px solid #ebe9e5;
+      font-weight: 300;
+    }
+    .skill-col li:last-child { border: none; }
+
+    .proj-box {
+      border: 1px solid var(--line); border-radius: 6px;
+      padding: 36px; background: #fff;
+    }
+    .proj-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 12px;
+    }
+    .proj-top h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 22px; font-weight: 400;
+    }
+    .proj-link {
+      font-size: 12px; color: var(--light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1px; white-space: nowrap;
+      margin-left: 16px; flex-shrink: 0;
+    }
+    .proj-link:hover { color: var(--dark); border-color: var(--dark); }
+    .proj-desc {
+      font-size: 14px; color: var(--mid); line-height: 1.8;
+      font-weight: 300; margin-bottom: 28px;
+    }
+    .pipeline {
+      background: #1a1a1a; border-radius: 5px;
+      padding: 18px 22px; margin-bottom: 28px; overflow-x: auto;
+    }
+    .pipeline p {
+      font-family: monospace; font-size: 12px;
+      line-height: 2; white-space: nowrap;
+    }
+    .c-w { color: #e8e8e8; }
+    .c-b { color: #94a3b8; }
+    .c-g { color: #6ee7b7; }
+    .c-y { color: #fbbf24; }
+
+    .results { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .result { background: var(--tag-bg); border-radius: 4px; padding: 12px 14px; }
+    .r-label {
+      font-size: 10px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--light); margin-bottom: 3px;
+    }
+    .r-val { font-size: 13px; color: var(--dark); }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag {
+      font-size: 11px; padding: 4px 10px;
+      background: var(--tag-bg); border-radius: 3px; color: var(--mid);
+    }
+
+    .exp-entry {
+      display: grid; grid-template-columns: 180px 1fr; gap: 28px;
+      padding-bottom: 36px; margin-bottom: 36px;
+      border-bottom: 1px solid #ebe9e5;
+    }
+    .exp-entry:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
+    .exp-date { font-size: 12px; color: var(--light); line-height: 2; padding-top: 2px; }
+    .exp-content h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 18px; font-weight: 400; margin-bottom: 2px;
+    }
+    .exp-co { font-size: 13px; color: var(--light); margin-bottom: 14px; }
+    .exp-list { list-style: none; }
+    .exp-list li {
+      font-size: 14px; color: var(--mid);
+      padding: 4px 0 4px 14px; position: relative;
+      line-height: 1.65; font-weight: 300;
+    }
+    .exp-list li::before { content: '·'; position: absolute; left: 0; color: var(--light); }
+
+    .cert {
+      border: 1px solid var(--line); border-radius: 6px;
+      padding: 28px 32px; display: flex; gap: 24px;
+      align-items: center; background: #fff;
+    }
+    .cert-ico { font-size: 32px; }
+    .cert-info h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 18px; font-weight: 400; margin-bottom: 6px;
+    }
+    .cert-info p { font-size: 13px; color: var(--mid); margin-bottom: 8px; }
+    .cert-info a {
+      font-size: 13px; color: var(--dark);
+      border-bottom: 1px solid var(--line);
+      text-decoration: none; padding-bottom: 1px;
+    }
+    .cert-info a:hover { border-color: var(--dark); }
+    .cert-meta { font-size: 11px; color: var(--light); margin-top: 8px; line-height: 2; }
+
+    .contact-rows { list-style: none; }
+    .contact-rows li {
+      display: flex; gap: 20px; align-items: center;
+      padding: 14px 0; border-bottom: 1px solid #ebe9e5;
+    }
+    .contact-rows li:last-child { border: none; }
+    .c-lbl {
+      font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--light);
+      width: 72px; flex-shrink: 0;
+    }
+    .contact-rows a { font-size: 14px; color: var(--mid); text-decoration: none; }
+    .contact-rows a:hover { color: var(--dark); }
+
+    footer { padding: 28px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--light); }
+
+    @media (max-width: 640px) {
+      .about-cols, .skills-grid { grid-template-columns: 1fr; }
+      .results { grid-template-columns: 1fr; }
+      .exp-entry { grid-template-columns: 1fr; gap: 6px; }
+      .proj-top { flex-direction: column; gap: 6px; }
+      .proj-link { margin-left: 0; }
+    }
+  </style>
 </head>
 <body>
 
+<nav>
+  <div class="nav-row">
+    <div class="nav-name">Lavanya Janapati</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#project">Project</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
 <header>
-    <h1>Lavanya Janapati</h1>
-    <p>Senior Data Engineer</p>
-    <p>GCP Professional Data Engineer Certified</p>
-    <p>Building scalable data platforms using Kafka, Spark, Scala, Python & BigQuery</p>
-    <p>Currently building real-time data systems & exploring Full-Stack GenAI 🚀</p>
+  <div class="wrap">
+    <p class="hero-role">Senior Data Engineer &nbsp;·&nbsp; GCP Certified</p>
+    <h1>Lavanya<br>Janapati</h1>
+    <p class="hero-sub">
+      Building production-grade real-time streaming pipelines,
+      distributed data systems, and GenAI-powered applications.
+    </p>
+    <div class="hero-actions">
+      <a href="https://github.com/lavanyajanapati" class="btn btn-dark" target="_blank">GitHub →</a>
+      <a href="https://www.linkedin.com/in/lavanya-janapati/" class="btn btn-ghost" target="_blank">LinkedIn</a>
+      <a href="mailto:lavanya.janapati@gmail.com" class="btn btn-ghost">Email</a>
+    </div>
+  </div>
 </header>
 
-<section>
-    <h2>🚀 About Me</h2>
-    <p>
-        <p>
-        Senior Data Engineer with experience in building high-scale batch and streaming data pipelines 
-        using Spark, Scala, and Python on GCP. GCP Professional Data Engineer certified with strong 
-        expertise in distributed systems, data modeling, and performance optimization.
+<section id="about">
+  <div class="wrap">
+    <p class="sec-label">About</p>
+    <h2>Background</h2>
+    <div class="about-cols">
+      <div>
+        <p>Senior Data Engineer with extensive experience designing enterprise-grade backend systems, distributed data pipelines, and cloud-native architectures. Google Cloud Professional Data Engineer certified.</p>
+        <p>Proven track record of modernizing legacy platforms — migrating on-premise pipelines to GCP, achieving 40% faster processing and 25% cost savings. Expert in optimizing Spark applications, reducing runtimes by up to 70%.</p>
+      </div>
+      <div>
+        <p>Currently focused on real-time streaming engineering: Kafka pipelines with exactly-once delivery guarantees, event-time semantics, watermark-based deduplication, and Bronze/Silver/Gold medallion architecture on Delta Lake.</p>
+        <p>Expanding into GenAI engineering — integrating LLM-powered features with streaming data platforms including RAG pipelines and real-time AI agents built on live data.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        I have worked on large-scale data processing (billions of records), optimizing joins, improving 
-        pipeline efficiency, and ensuring data reliability.
+<section id="skills">
+  <div class="wrap">
+    <p class="sec-label">Skills</p>
+    <h2>Tech Stack</h2>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h4>Streaming</h4>
+        <ul>
+          <li>Apache Kafka / Redpanda</li>
+          <li>Confluent Cloud</li>
+          <li>Schema Registry / Avro</li>
+          <li>Spark Structured Streaming</li>
+          <li>Consumer Groups</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h4>Data Platforms</h4>
+        <ul>
+          <li>Delta Lake / Databricks</li>
+          <li>GCP BigQuery / Dataproc</li>
+          <li>Apache Airflow</li>
+          <li>dbt</li>
+          <li>Hive / Hadoop</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h4>Languages & Tools</h4>
+        <ul>
+          <li>Python / PySpark / Scala</li>
+          <li>SQL</li>
+          <li>Git / Jenkins</li>
+          <li>LLM APIs / RAG</li>
+          <li>Prompt Engineering</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        Currently, I am focused on building real-time streaming pipelines and exploring GenAI applications.
-        </p>
-    </p>
+<section id="project">
+  <div class="wrap">
+    <p class="sec-label">Project</p>
+    <h2>Real-Time Streaming Pipeline</h2>
+    <div class="proj-box">
+      <div class="proj-top">
+        <h3>BTC/USD Live Streaming Pipeline</h3>
+        <a href="https://github.com/lavanyajanapati/sp500-streaming-pipeline" class="proj-link" target="_blank">View on GitHub ↗</a>
+      </div>
+      <p class="proj-desc">
+        End-to-end real-time pipeline ingesting live price data via WebSocket, publishing to Redpanda
+        Kafka with exactly-once delivery guarantees, and processing through Spark Structured Streaming
+        into a Bronze/Silver/Gold Delta Lake architecture on Databricks.
+      </p>
+
+      <div class="pipeline">
+        <p><span class="c-b">WebSocket</span> <span class="c-w">→</span> <span class="c-b">MessageEnricher</span> <span class="c-w">→</span> <span class="c-w">Redpanda Kafka</span> <span class="c-w">→</span> <span class="c-g">Spark Streaming</span> <span class="c-w">→</span> <span class="c-y">Delta Lake</span></p>
+        <p><span class="c-b">3 partitions · 3 replicas · SCRAM-SHA-256 · 7-day retention</span></p>
+        <p><span class="c-g">Bronze (raw) → Silver (deduplicated) → Gold (VWAP + OHLCV)</span></p>
+      </div>
+
+      <div class="results">
+        <div class="result">
+          <p class="r-label">Checkpointing</p>
+          <p class="r-val">Ran stream twice — second run = 0 records. Fault tolerance verified.</p>
+        </div>
+        <div class="result">
+          <p class="r-label">Deduplication</p>
+          <p class="r-val">Bronze 109 records → Silver 61. 48 duplicates removed. Zero remaining.</p>
+        </div>
+        <div class="result">
+          <p class="r-label">Consumer Groups</p>
+          <p class="r-val">Live partition rebalancing witnessed across two terminals.</p>
+        </div>
+        <div class="result">
+          <p class="r-label">Event-Time Semantics</p>
+          <p class="r-val">24-day old data processed correctly using event_timestamp, not processing time.</p>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">acks=all</span>
+        <span class="tag">Idempotent Producer</span>
+        <span class="tag">Consumer Groups</span>
+        <span class="tag">Watermarks</span>
+        <span class="tag">dropDuplicates</span>
+        <span class="tag">Checkpointing</span>
+        <span class="tag">Event-Time Semantics</span>
+        <span class="tag">Delta Lake</span>
+        <span class="tag">Medallion Architecture</span>
+        <span class="tag">VWAP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="sec-label">Experience</p>
+    <h2>Work History</h2>
+
+    <div class="exp-entry">
+      <div class="exp-date">Apr 2022 – Present<br><br>Spark · Scala · GCP<br>Kafka · Airflow</div>
+      <div class="exp-content">
+        <h3>Senior Data Engineer</h3>
+        <p class="exp-co">Cognizant — Client: Verizon</p>
+        <ul class="exp-list">
+          <li>Led cloud modernization migrating on-premise pipelines to GCP — 40% faster processing, 25% cost savings.</li>
+          <li>Optimized Spark applications using partitioning, caching, and query tuning — reducing runtimes by up to 70%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Nov 2019 – Mar 2022<br><br>SSAS · DAX<br>SQL Server · Teradata</div>
+      <div class="exp-content">
+        <h3>Senior Advisor — Data & BI</h3>
+        <p class="exp-co">Dell Technologies / Technosoft Corp</p>
+        <ul class="exp-list">
+          <li>Built SSAS Tabular cubes and DAX measures for revenue pipeline forecasting — reducing report load times by ~35%.</li>
+          <li>Delivered Sales BI dashboards enabling leadership to monitor opportunity and revenue flows in near real-time.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Apr 2009 – Nov 2019<br><br>ASP.NET · C#<br>SQL Server · SSIS</div>
+      <div class="exp-content">
+        <h3>Lead Analyst</h3>
+        <p class="exp-co">CGI — Client: Bell Canada</p>
+        <ul class="exp-list">
+          <li>Architected and delivered 10+ enterprise applications supporting field operations and billing for one of Canada's largest telecoms.</li>
+          <li>Automated scheduling processes — eliminating ~15 hours/week of manual effort across onshore and offshore teams.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section>
-    <h2>⚡ Skills</h2>
-    <div class="card">
-        <p><b>Languages:</b> Python, Scala</p>
-        <p><b>Big Data:</b> Apache Spark (Batch & Streaming)</p>
-        <p><b>Cloud:</b> GCP (BigQuery, GCS, Dataflow)</p>
-        <p><b>Data Engineering:</b> ETL Pipelines, Data Modeling, Data Quality</p>
-        <p><b>Streaming:</b> Real-time Data Pipelines</p>
-        <p><b>GenAI:</b> LLMs, Prompt Engineering, Full-Stack GenAI (Learning)</p>
+  <div class="wrap">
+    <p class="sec-label">Certification</p>
+    <h2>Credentials</h2>
+    <div class="cert">
+      <div class="cert-ico">🏆</div>
+      <div class="cert-info">
+        <h3>Google Cloud Professional Data Engineer</h3>
+        <p>Expertise in designing, building, and operationalizing data processing systems on GCP.</p>
+        <a href="https://www.credly.com/badges/745bf167-cf99-4a8d-91c3-71fe32b04951/public_url" target="_blank">View Badge ↗</a>
+        <p class="cert-meta">Issued: Aug 20, 2025 &nbsp;·&nbsp; Expires: Aug 20, 2027 &nbsp;·&nbsp; ID: 625e231c33d2432e9ab9f18dc2c1bfd1</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<section>
-    <h2>🔥 Projects</h2>
-
-    <div class="card">
-        <h3>S&P 500 Real-Time Streaming Pipeline</h3>
-        
-        <p>
-        Built an end-to-end real-time streaming pipeline to ingest and process stock market data 
-        for S&P 500 companies using <b>Apache Kafka</b> and Spark Streaming.
-        </p>
-
-        <p><b>Key Highlights:</b></p>
-        <p>- Real-time data ingestion using Kafka producers and consumers</p>
-        <p>- Stream processing with Spark for near real-time analytics</p>
-        <p>- Scalable pipeline design for high-throughput data streams</p>
-        <p>- Data storage and analytics using BigQuery</p>
-
-        <p><b>Tech Stack:</b> Python, Apache Kafka, Spark Streaming, GCP (BigQuery, GCS)</p>
-
-        <p>
-        <a href="https://github.com/lavanyajanapati/sp500-streaming-pipeline" target="_blank">
-        View Project →
-        </a>
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>High-Scale Data Pipeline</h3>
-        <p>Processed billions of records using Spark and optimized joins to reduce compute cost.</p>
-    </div>
-
-    <div class="card">
-        <h3>GCP Data Platform</h3>
-        <p>Built scalable ETL pipelines using BigQuery and cloud-native services.</p>
-    </div>
-
-    <div class="card">
-        <h3>GenAI SQL Generator</h3>
-        <p>Built a GenAI tool to convert natural language into SQL queries.</p>
-    </div>
-
+<section id="contact">
+  <div class="wrap">
+    <p class="sec-label">Contact</p>
+    <h2>Get in Touch</h2>
+    <ul class="contact-rows">
+      <li>
+        <span class="c-lbl">GitHub</span>
+        <a href="https://github.com/lavanyajanapati" target="_blank">github.com/lavanyajanapati</a>
+      </li>
+      <li>
+        <span class="c-lbl">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/lavanya-janapati/" target="_blank">linkedin.com/in/lavanya-janapati</a>
+      </li>
+      <li>
+        <span class="c-lbl">Email</span>
+        <a href="mailto:lavanya.janapati@gmail.com">lavanya.janapati@gmail.com</a>
+      </li>
+    </ul>
+  </div>
 </section>
 
-<section>
-    <h2>💼 Experience</h2>
-    <div class="card">
-        <p><b>Senior Data Engineer</b></p>
-
-        <p>- Built high-throughput batch and real-time data pipelines processing billions of records</p>
-
-        <p>- Designed and implemented real-time streaming applications using <b>Apache Kafka</b> and Spark Streaming</p>
-
-        <p>- Optimized Spark joins and transformations, preventing data explosion issues and improving performance significantly</p>
-
-        <p>- Developed scalable ETL and streaming pipelines on GCP using BigQuery, GCS, and Dataflow</p>
-
-        <p>- Improved data reliability, data quality, and end-to-end pipeline efficiency</p>
-    </div>
-</section>
-
-<section>
-    <h2>🏆 Certifications</h2>
-    <div class="card">
-        <p><b>Google Cloud Professional Data Engineer</b></p>
-        <p>
-        <a href="https://www.credly.com/badges/745bf167-cf99-4a8d-91c3-71fe32b04951/public_url" target="_blank">
-            View Certification Badge
-        </a>
-        </p>
-        <p>Certification Number: 625e231c33d2432e9ab9f18dc2c1bfd1</p>
-        <p>Issued Date: Aug 20, 2025</p>
-        <p>Expiration Date: Aug 20, 2027</p>
-        
-    </div>
-</section>
-<section>
-    <h2>🤖 GenAI Journey</h2>
-    <div class="card">
-        <p>
-        Currently learning and building Full-Stack GenAI applications, including 
-        LLM-based tools for automation and data-driven insights.
-        </p>
-    </div>
-</section>
-<section>
-    <h2>📬 Contact</h2>
-    <div class="card">
-        <p>GitHub: <a href="https://github.com/lavanyajanapati">https://github.com/lavanyajanapati</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/lavanya-janapati/">https://www.linkedin.com/in/lavanya-janapati/</a></p>
-        <p>Email: lavanya.janapati@gmail.com</p>
-    </div>
-</section>
+<footer>
+  <div class="wrap">
+    <p>Lavanya Janapati &nbsp;·&nbsp; Senior Data Engineer &nbsp;·&nbsp; San Ramon, CA</p>
+  </div>
+</footer>
 
 </body>
 </html>
