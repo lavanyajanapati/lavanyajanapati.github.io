@@ -231,7 +231,7 @@
 
 <nav>
   <div class="nav-row">
-    <div class="nav-name"></div>
+    <div class="nav-name">Lavanya Janapati</div>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -245,7 +245,7 @@
 <header>
   <div class="wrap">
     <p class="hero-role">Senior Data Engineer &nbsp;·&nbsp; GCP Certified</p>
-    <h1>Lavanya Janapati</h1>
+    <h1>Lavanya<br>Janapati</h1>
     <p class="hero-sub">
       Building production-grade real-time streaming pipelines,
       distributed data systems, and GenAI-powered applications.
@@ -325,7 +325,7 @@
         <a href="https://github.com/lavanyajanapati/sp500-streaming-pipeline" class="proj-link" target="_blank">View on GitHub ↗</a>
       </div>
       <p class="proj-desc">
-        End-to-end real-time pipeline ingesting live price data via WebSocket, publishing to Redpanda
+        End-to-end real-time pipeline ingesting live BTC/USD price data via WebSocket, publishing to Redpanda
         Kafka with exactly-once delivery guarantees, and processing through Spark Structured Streaming
         into a Bronze/Silver/Gold Delta Lake architecture on Databricks.
       </p>
@@ -336,23 +336,44 @@
         <p><span class="c-g">Bronze (raw) → Silver (deduplicated) → Gold (VWAP + OHLCV)</span></p>
       </div>
 
-      <div class="results">
-        <div class="result">
-          <p class="r-label">Checkpointing</p>
-          <p class="r-val">Ran stream twice — second run = 0 records. Fault tolerance verified.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:28px;">
+
+        <div style="border:1px solid var(--line); border-radius:5px; padding:20px;">
+          <p style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--light); margin-bottom:10px;">Kafka Producer & Consumer</p>
+          <ul style="list-style:none; font-size:13px; color:var(--mid); font-weight:300; line-height:2;">
+            <li>· <code style="font-size:11px; color:var(--dark);">acks=all</code> — waits for all replica acknowledgements</li>
+            <li>· Idempotent producer prevents duplicate writes on retry</li>
+            <li>· <code style="font-size:11px; color:var(--dark);">enable.idempotence=true</code> + transactional ID</li>
+            <li>· Consumer group with auto partition rebalancing</li>
+            <li>· <code style="font-size:11px; color:var(--dark);">isolation.level=read_committed</code> for exactly-once reads</li>
+            <li>· SCRAM-SHA-256 auth over SASL/PLAINTEXT</li>
+          </ul>
         </div>
-        <div class="result">
-          <p class="r-label">Deduplication</p>
-          <p class="r-val">Bronze 109 records → Silver 61. 48 duplicates removed. Zero remaining.</p>
+
+        <div style="border:1px solid var(--line); border-radius:5px; padding:20px;">
+          <p style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--light); margin-bottom:10px;">Spark Structured Streaming</p>
+          <ul style="list-style:none; font-size:13px; color:var(--mid); font-weight:300; line-height:2;">
+            <li>· Kafka source with <code style="font-size:11px; color:var(--dark);">startingOffsets=earliest</code></li>
+            <li>· Event-time processing via <code style="font-size:11px; color:var(--dark);">event_timestamp</code> field</li>
+            <li>· Watermark-based late data handling</li>
+            <li>· <code style="font-size:11px; color:var(--dark);">dropDuplicates()</code> on message ID + event window</li>
+            <li>· Checkpointing to cloud storage for fault tolerance</li>
+            <li>· Trigger interval tuned per layer (micro-batch)</li>
+          </ul>
         </div>
-        <div class="result">
-          <p class="r-label">Consumer Groups</p>
-          <p class="r-val">Live partition rebalancing witnessed across two terminals.</p>
+
+        <div style="border:1px solid var(--line); border-radius:5px; padding:20px;">
+          <p style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--light); margin-bottom:10px;">Delta Lake — Medallion Architecture</p>
+          <ul style="list-style:none; font-size:13px; color:var(--mid); font-weight:300; line-height:2;">
+            <li>· <span style="color:#94a3b8;">Bronze</span> — raw WebSocket records, schema-on-read</li>
+            <li>· <span style="color:#6ee7b7;">Silver</span> — deduplicated, validated, typed records</li>
+            <li>· <span style="color:#fbbf24;">Gold</span> — aggregated VWAP + OHLCV per time window</li>
+            <li>· ACID transactions + time travel via Delta log</li>
+            <li>· Append + merge modes per layer</li>
+            <li>· Optimized with Z-ordering on <code style="font-size:11px; color:var(--dark);">event_timestamp</code></li>
+          </ul>
         </div>
-        <div class="result">
-          <p class="r-label">Event-Time Semantics</p>
-          <p class="r-val">24-day old data processed correctly using event_timestamp, not processing time.</p>
-        </div>
+
       </div>
 
       <div class="tags">
@@ -444,7 +465,6 @@
         <span class="c-lbl">LinkedIn</span>
         <a href="https://www.linkedin.com/in/lavanya-janapati/" target="_blank">linkedin.com/in/lavanya-janapati</a>
       </li>
-    </ul>
-	</div>
-	</section>
-	
+     </ul>
+   </div>
+</section>	 
